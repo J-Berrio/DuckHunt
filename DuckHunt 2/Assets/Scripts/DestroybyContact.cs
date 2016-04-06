@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroybyContact : MonoBehaviour 
+public class DestroybyContact : MonoBehaviour
 {
+	public int scoreValue;
+	public GameController gameController;
+
 	void OnTriggerEnter(Collider other) 
 
 	{
@@ -11,6 +14,7 @@ public class DestroybyContact : MonoBehaviour
 			return;
 		}
 
+		gameController.AddScore (scoreValue);
 		Destroy (other.gameObject);
 		Destroy (gameObject);
 	}
