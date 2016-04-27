@@ -9,6 +9,7 @@ public class Boundary
 
 public class PlayerMove1 : MonoBehaviour 
 {
+
 	private Rigidbody rb;
 	private float nextFire;
 
@@ -16,7 +17,6 @@ public class PlayerMove1 : MonoBehaviour
 	public GameObject shot;
 	public Transform ShotsSpawn;
 	public float fireRate;
-
 	public Boundary boundary;
 	
 
@@ -44,10 +44,8 @@ public class PlayerMove1 : MonoBehaviour
 		rb.AddForce (movement * speed);
 
 		rb.position = new Vector3 
-		(
-			Mathf.Clamp (rb.position.x, boundary.xMin, boundary.xMax), 
-			0, 
-			Mathf.Clamp (rb.position.z, boundary.zMin, boundary.zMax)
-		);
+			(Mathf.Clamp (rb.position.x, boundary.xMin, boundary.xMax), 
+			0.0f, 
+			Mathf.Clamp (rb.position.z, boundary.zMin, boundary.zMax));
 	}
 }
